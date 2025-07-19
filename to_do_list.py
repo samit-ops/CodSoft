@@ -4,7 +4,7 @@ from tkinter import ttk, messagebox
 tasks = []
 
 root = tk.Tk()
-root.title("🔥 Techy To-Do List")
+root.title("To-Do List")
 root.geometry("500x680")
 root.config(bg="#1c1c1c")
 root.resizable(False, False)
