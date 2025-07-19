@@ -67,7 +67,16 @@ output_var = tk.StringVar()
 output_label = tk.Label(root, textvariable=output_var, font=("Courier New", 14, "bold"), fg="#dfe6e9", bg="#1e272e", wraplength=400)
 output_label.pack(pady=10)
 
+# ---------------------- Animated Footer ----------------------
+footer_text = "Made by SAMIT ❤️"
+footer_label = tk.Label(root, text=footer_text, font=("Helvetica", 12), fg="white", bg="#1e272e")
+footer_label.pack(side="bottom", pady=10)
 
-tk.Label(root, text="Built with Python 💻", font=("Segoe UI", 10), fg="#636e72", bg="#1e272e").pack(pady=10)
+def animate_footer(x=0):
+    moving_text = footer_text[x:] + " " + footer_text[:x]
+    footer_label.config(text=moving_text)
+    root.after(200, animate_footer, (x + 1) % len(footer_text))
+
+animate_footer()
 
 root.mainloop()
