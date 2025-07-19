@@ -1,10 +1,8 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-# Master Task List
 tasks = []
 
-# Initialize main window
 root = tk.Tk()
 root.title("🔥 Techy To-Do List")
 root.geometry("500x680")
@@ -14,7 +12,6 @@ root.resizable(False, False)
 style = ttk.Style()
 style.theme_use("clam")
 
-# Entry Frame
 entry_frame = tk.Frame(root, bg="#1c1c1c")
 entry_frame.pack(pady=20)
 
@@ -35,7 +32,6 @@ add_btn = tk.Button(entry_frame, text="➕ Add Task", font=("Segoe UI", 12),
                     command=add_task, height=1, width=10)
 add_btn.grid(row=0, column=1, padx=10)
 
-# Filter Frame
 filter_frame = tk.Frame(root, bg="#1c1c1c")
 filter_frame.pack()
 
@@ -51,8 +47,7 @@ for i, f in enumerate(filters):
                    font=("Segoe UI", 11), bg="#1c1c1c", fg="white", selectcolor="#00ADB5",
                    activebackground="#1c1c1c", activeforeground="#00ADB5",
                    command=lambda f=f: set_filter(f)).grid(row=0, column=i, padx=15)
-
-# Task Display Frame
+    
 task_frame = tk.Frame(root, bg="#1c1c1c")
 task_frame.pack(pady=10, fill="both", expand=True)
 
@@ -91,7 +86,6 @@ def refresh_tasks():
                   bg="#D72323", fg="white", bd=0,
                   command=lambda i=idx: delete_task(i)).pack(side="right", padx=4)
 
-# Animated Footer
 footer_frame = tk.Frame(root, bg="#1c1c1c")
 footer_frame.pack(pady=(5, 10))
 
@@ -102,7 +96,6 @@ heart_label = tk.Label(footer_frame, text="❤️", font=("Segoe UI", 10), bg="#
 text_label.pack(side="left")
 heart_label.pack(side="left")
 
-# Heart pulse animation
 def pulse(size=10, growing=True):
     new_size = size + 1 if growing else size - 1
     heart_label.config(font=("Segoe UI", new_size))
@@ -112,8 +105,7 @@ def pulse(size=10, growing=True):
         growing = True
     root.after(200, pulse, new_size, growing)
 
-pulse()  # Start the animation
+pulse()  
 
-# Start App
 refresh_tasks()
 root.mainloop()
