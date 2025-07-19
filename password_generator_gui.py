@@ -67,7 +67,6 @@ output_var = tk.StringVar()
 output_label = tk.Label(root, textvariable=output_var, font=("Courier New", 14, "bold"), fg="#dfe6e9", bg="#1e272e", wraplength=400)
 output_label.pack(pady=10)
 
-# ---------------------- Animated Footer ----------------------
 footer_text = "Made by SAMIT ❤️"
 footer_label = tk.Label(root, text=footer_text, font=("Helvetica", 12), fg="white", bg="#1e272e")
 footer_label.pack(side="bottom", pady=10)
